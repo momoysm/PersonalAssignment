@@ -12,5 +12,8 @@ public class Main {
         System.out.println("두 번째 숫자를 입력하세요 : ");
         int input2 = Integer.parseInt(br.readLine());
 
+        System.out.println("연산자를 입력하세요 : ");
+        char operator = br.readLine().charAt(0);
+
     }
 }
