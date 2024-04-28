@@ -14,6 +14,20 @@ public class Main {
         char operator = ' '; //연산자 입력값
 
         while(!exit.equals("exit")){
+
+            if(count == 10){
+                for(int i=0; i<10; i++){
+                    if(i < 9){
+                        result[i] = result[i+1];
+                    }else{
+                        result[i] = 0;
+                    }
+                    System.out.println(i + " : " + result[i]);
+                }
+
+                count--;
+            }
+
             System.out.print("첫 번째 숫자를 입력하세요 : ");
             input1 = Integer.parseInt(br.readLine());
 
@@ -47,14 +61,10 @@ public class Main {
 
             if(error.isEmpty()){
                 System.out.println("결과 : " + result[count]); //error가 없을 때 결과값 출력
-
-                if(count != 10){ //result 배열의 길이는 10이기 때문에 10이 넘어가지 않도록 체크
-                    count++;
-                }
+                count++;
             }else{
                 System.out.println(error); //error가 있으면 error출력
             }
-
             System.out.println("enter any word to continue? (exit 입력 시 종료)");
             exit = br.readLine();
         }
