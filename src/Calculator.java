@@ -1,9 +1,10 @@
 import java.util.ArrayList;
 
 public class Calculator {
-    public ArrayList<Integer> calculate(int input1, int input2, char operator) throws AllException{
 
-        ArrayList<Integer> resultList = new ArrayList<Integer>(); //결과값 저장 List
+    public ArrayList<Integer> resultList = new ArrayList<Integer>(); //결과값 저장 List
+
+    public ArrayList<Integer> calculate(int input1, int input2, char operator) throws AllException{
 
         int result = 0;
         String error = "";
@@ -31,6 +32,7 @@ public class Calculator {
         }
 
         if(error.isEmpty()){
+            System.out.println("결과 : " + result);
             resultList.add(result);
         }else{
             throw new AllException(error); //error가 있으면 error출력
