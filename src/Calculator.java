@@ -12,6 +12,10 @@ public class Calculator {
         this.resultList = resultList;
     }
 
+    public void removeResultList(int index) {
+        this.resultList.remove(0);
+    }
+
     public void calculate(int input1, int input2, char operator) throws AllException{
 
         int result = 0;
