@@ -2,9 +2,17 @@ import java.util.ArrayList;
 
 public class Calculator {
 
-    public ArrayList<Integer> resultList = new ArrayList<Integer>(); //결과값 저장 List
+    private ArrayList<Integer> resultList = new ArrayList<Integer>(); //결과값 저장 List
 
-    public ArrayList<Integer> calculate(int input1, int input2, char operator) throws AllException{
+    public ArrayList<Integer> getResultList() {
+        return resultList;
+    }
+
+    public void setResultList(ArrayList<Integer> resultList) {
+        this.resultList = resultList;
+    }
+
+    public void calculate(int input1, int input2, char operator) throws AllException{
 
         int result = 0;
         String error = "";
@@ -31,13 +39,16 @@ public class Calculator {
                 break;
         }
 
-        if(error.isEmpty()){
-            System.out.println("결과 : " + result);
-            resultList.add(result);
-        }else{
-            throw new AllException(error); //error가 있으면 error출력
+        try{
+            if(error.isEmpty()){
+                System.out.println("결과 : " + result);
+                resultList.add(result);
+            }else{
+                throw new AllException(error); //error가 있으면 error출력
+            }
+        }catch(AllException e){
+            System.out.println(e.getMessage());
         }
 
-        return resultList;
     }
 }
