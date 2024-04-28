@@ -4,16 +4,21 @@ public class Calculator {
 
     private ArrayList<Integer> resultList = new ArrayList<Integer>(); //결과값 저장 List
 
-    public ArrayList<Integer> getResultList() {
+    //getter setter가 더 이상 사용하지 않으므로 삭제
+    /*public ArrayList<Integer> getResultList() {
         return resultList;
     }
 
     public void setResultList(ArrayList<Integer> resultList) {
         this.resultList = resultList;
-    }
+    }*/
 
     public void removeResultList(int index) {
         this.resultList.remove(0);
+    }
+
+    public void inquiryResultList() {
+        System.out.println(this.resultList);
     }
 
     public void calculate(int input1, int input2, char operator) throws AllException{

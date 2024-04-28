@@ -29,15 +29,12 @@ public class App {
 
             calculator.calculate(input1, input2, operator);
 
-            resultList = calculator.getResultList();
-
             System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
             remove = br.readLine();
 
             //remove입력시 결과값 리스트에서 첫번째 값 제거
             if(remove.equals("remove")){
                 calculator.removeResultList(0);
-                resultList = calculator.getResultList();
             }
 
             System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
@@ -45,7 +42,7 @@ public class App {
 
             //inquiry입력시 결과값 전부 조회
             if(inquiry.equals("inquiry")){
-                System.out.println(resultList);
+                calculator.inquiryResultList();
             }
 
             System.out.println("enter any word to continue? (exit 입력 시 종료)");
