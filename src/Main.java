@@ -10,6 +10,7 @@ public class Main {
         String error = ""; //에러시 출력 문장
         String exit = ""; //계산 종료 input
         String remove = ""; //결과값 배열 첫번째 값 제거 명령어?
+        String inquiry = ""; //결과값 배열 전부 조회 명령어?
 
         int input1 = 0; //첫 번째 입력값
         int input2 = 0; //두 번째 입력값
@@ -62,6 +63,16 @@ public class Main {
             //remove입력시 결과값 리스트에서 첫번째 값 제거
             if(remove.equals("remove")){
                 resultList.remove(0);
+            }
+
+            System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
+            inquiry = br.readLine();
+
+            //inquiry입력시 결과값 전부 조회
+            if(inquiry.equals("inquiry")){
+                for(int r : resultList){
+                    System.out.println(r);
+                }
             }
 
             System.out.println("enter any word to continue? (exit 입력 시 종료)");
