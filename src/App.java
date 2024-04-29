@@ -6,8 +6,7 @@ public class App {
         Calculator calculator = new Calculator();
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
-        ArrayList<Integer> resultList = new ArrayList<>();
+        
         String exit = ""; //계산 종료 input
         String remove = ""; //결과값 배열 첫번째 값 제거 명령어?
         String inquiry = ""; //결과값 배열 전부 조회 명령어?

@@ -2,7 +2,11 @@ import java.util.ArrayList;
 
 public class Calculator {
 
-    private ArrayList<Integer> resultList = new ArrayList<Integer>(); //결과값 저장 List
+    private ArrayList<Integer> resultList;
+
+    public Calculator(){
+        resultList = new ArrayList<>();
+    }
 
     //getter setter가 더 이상 사용하지 않으므로 삭제
     /*public ArrayList<Integer> getResultList() {
