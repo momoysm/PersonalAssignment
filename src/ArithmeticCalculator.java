@@ -4,6 +4,19 @@ public class ArithmeticCalculator extends Calculator{
 
     private ArrayList<Integer> resultList;
 
+    AddOperator addOperator;
+    SubtractOperator subtractOperator;
+    MultiplyOperator multiplyOperator;
+    DivideOperator divideOperator;
+
+    ArithmeticCalculator(){
+        resultList = new ArrayList<>();
+        addOperator = new AddOperator();
+        subtractOperator = new SubtractOperator();
+        multiplyOperator = new MultiplyOperator();
+        divideOperator = new DivideOperator();
+    }
+
     public ArrayList<Integer> getResultList() {
         return resultList;
     }
@@ -34,19 +47,19 @@ public class ArithmeticCalculator extends Calculator{
 
         switch (operator) {
             case('+'):
-                result = input1 + input2;
+                result = addOperator.operate(input1, input2);
                 break;
             case('-'):
-                result = input1 - input2;
+                result = subtractOperator.operate(input1, input2);
                 break;
             case('*'):
-                result = input1 * input2;
+                result = multiplyOperator.operate(input1, input2);
                 break;
             case('/'):
                 if(input2 == 0) {
                     error = "0으로는 나눌 수 없습니다.";
                 }else{
-                    result = input1 / input2;
+                    result = divideOperator.operate(input1, input2);
                 }
                 break;
             default:

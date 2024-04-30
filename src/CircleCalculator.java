@@ -4,6 +4,10 @@ public class CircleCalculator extends Calculator{
 
     private ArrayList<Double> areaList;
 
+    public CircleCalculator() {
+        areaList = new ArrayList<>();
+    }
+
     public ArrayList<Double> getAreaList(){
         return areaList;
     }
