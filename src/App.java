@@ -3,7 +3,6 @@ import java.util.ArrayList;
 
 public class App {
     public static void main(String[] args) throws IOException, AllException {
-        Calculator calculator = new Calculator();
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         
@@ -19,19 +18,22 @@ public class App {
         //exit입력시 반복 종료
         while(!exit.equals("exit")){
 
-            System.out.println("연산 종류를 고르세요. ('원의 넓이' 입력 시 원의 넓이를 구하는 계산기.)");
-            String gubun = br.readLine();
+            System.out.println("연산 종류를 고르세요. (원의 넓이 : 1, 사칙연산 : 2)");
+            int gubun = Integer.parseInt(br.readLine());
 
-            if(gubun.equals("원의 넓이")){//원의 넓이
+            if(gubun == 1){//원의 넓이
+                Calculator calculator = new CircleCalculator();
 
                 System.out.print("반지름을 입력하세요 : ");
                 radius = Double.parseDouble(br.readLine());
 
-                calculator.calculateCircleArea(radius);
+                calculator.calculate(radius);
 
-                calculator.inquiryAreaList();
+                calculator.inquiryResultList();
 
-            }else{//사칙연산
+            }else if(gubun == 2){//사칙연산
+                Calculator calculator = new ArithmeticCalculator();
+
                 System.out.print("첫 번째 숫자를 입력하세요 : ");
                 input1 = Integer.parseInt(br.readLine());
 
@@ -48,7 +50,7 @@ public class App {
 
                 //remove입력시 결과값 리스트에서 첫번째 값 제거
                 if(remove.equals("remove")){
-                    calculator.removeResultList(0);
+                    calculator.removeResultList();
                 }
 
                 System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
@@ -58,6 +60,10 @@ public class App {
                 if(inquiry.equals("inquiry")){
                     calculator.inquiryResultList();
                 }
+            }else{
+
+                System.out.println("해당하는 연산종류가 없습니다.");
+
             }
 
             System.out.println("enter any word to continue? (exit 입력 시 종료)");
