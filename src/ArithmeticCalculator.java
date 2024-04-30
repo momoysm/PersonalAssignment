@@ -4,17 +4,10 @@ public class ArithmeticCalculator extends Calculator{
 
     private ArrayList<Integer> resultList;
 
-    AddOperator addOperator;
-    SubtractOperator subtractOperator;
-    MultiplyOperator multiplyOperator;
-    DivideOperator divideOperator;
+    AllOperator allOperator;
 
     ArithmeticCalculator(){
         resultList = new ArrayList<>();
-        addOperator = new AddOperator();
-        subtractOperator = new SubtractOperator();
-        multiplyOperator = new MultiplyOperator();
-        divideOperator = new DivideOperator();
     }
 
     public ArrayList<Integer> getResultList() {
@@ -46,26 +39,23 @@ public class ArithmeticCalculator extends Calculator{
         String error = "";
 
         switch (operator) {
-            case('+'):
-                result = addOperator.operate(input1, input2);
-                break;
-            case('-'):
-                result = subtractOperator.operate(input1, input2);
-                break;
-            case('*'):
-                result = multiplyOperator.operate(input1, input2);
-                break;
-            case('/'):
+            case('+') -> allOperator = new AddOperator();
+
+            case('-') -> allOperator = new SubtractOperator();
+
+            case('*') -> allOperator = new MultiplyOperator();
+
+            case('/') -> {
                 if(input2 == 0) {
                     error = "0으로는 나눌 수 없습니다.";
                 }else{
-                    result = divideOperator.operate(input1, input2);
+                    allOperator = new DivideOperator();
                 }
-                break;
-            default:
-                error = "사용할 수 없는 연산자입니다.";
-                break;
+            }
+            default -> error = "사용할 수 없는 연산자입니다.";
         }
+
+        result = allOperator.operate(input1, input2);
 
         try{
             if(error.isEmpty()){
