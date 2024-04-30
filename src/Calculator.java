@@ -3,9 +3,11 @@ import java.util.ArrayList;
 public class Calculator {
 
     private ArrayList<Integer> resultList;
+    private ArrayList<Double> areaList;
 
     public Calculator(){
-        resultList = new ArrayList<>();
+        this.resultList = new ArrayList<>();
+        this.areaList = new ArrayList<>();
     }
 
     //getter setter가 더 이상 사용하지 않으므로 삭제
@@ -17,12 +19,16 @@ public class Calculator {
         this.resultList = resultList;
     }*/
 
-    public void removeResultList(int index) {
+    public void removeResultList(int index) {//저장된 사칙연산 결과 중 첫 번째 삭제
         this.resultList.remove(0);
     }
 
-    public void inquiryResultList() {
-        System.out.println(this.resultList);
+    public void inquiryResultList() {//저장된 사칙연산 결과를 전체 조회
+        System.out.println("전체 : " + this.resultList);
+    }
+
+    public void inquiryAreaList() {//저장된 원의 넓이를 전체 조회
+        System.out.println("전체 : " + this.areaList);
     }
 
     public void calculate(int input1, int input2, char operator) throws AllException{
@@ -62,6 +68,28 @@ public class Calculator {
         }catch(AllException e){
             System.out.println(e.getMessage());
         }
+
+    }
+
+    public void calculateCircleArea(double radius) throws AllException {
+        String error = "";
+        double area = Math.PI * radius * radius; //static, final 대신 Math.PI를 써서 파이 생성
+
+        if(radius < 0){
+            error = "반지름이 0보다 작을 수 없습니다.";
+        }
+
+        try{
+            if(error.isEmpty()) {
+                System.out.println("원의 넓이 : " + area);
+                areaList.add(area);
+            }else{
+                throw new AllException(error);
+            }
+        }catch(AllException e){
+            System.out.println(e.getMessage());
+        }
+
 
     }
 }
