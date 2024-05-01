@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class CircleCalculator extends Calculator{
+public class CircleCalculator<T> extends Calculator<T>{
 
     private ArrayList<Double> areaList;
 
@@ -48,7 +48,7 @@ public class CircleCalculator extends Calculator{
     }
 
     @Override
-    public void calculate(int input1, int input2, char operator) {
+    public void calculate(T input1, T input2, char operator) {
         throw new AllException("원의 넓이 계산기입니다.");
     }
 

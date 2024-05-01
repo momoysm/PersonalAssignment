@@ -1,5 +1,6 @@
-public class AddOperator implements AllOperator {
-    public int operate(int input1, int input2) {
-        return Operator.PLUS.operate(input1, input2);
+public class AddOperator<T> implements AllOperator<T> {
+    public T operate(T input1, T input2) {
+        T operate = (T) Operator.PLUS.operate((double) input1, (double) input2);
+        return operate;
     }
 }

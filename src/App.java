@@ -10,8 +10,8 @@ public class App {
         String remove = ""; //결과값 배열 첫번째 값 제거 명령어?
         String inquiry = ""; //결과값 배열 전부 조회 명령어?
 
-        int input1 = 0; //첫 번째 입력값
-        int input2 = 0; //두 번째 입력값
+        double input1 = 0.0; //첫 번째 입력값
+        double input2 = 0.0; //두 번째 입력값
         char operator = ' '; //연산자 입력값
         double radius = 0;
 
@@ -22,7 +22,7 @@ public class App {
             int gubun = Integer.parseInt(br.readLine());
 
             if(gubun == 1){//원의 넓이
-                Calculator calculator = new CircleCalculator();
+                Calculator<Double> calculator = new CircleCalculator<>();
 
                 System.out.print("반지름을 입력하세요 : ");
                 radius = Double.parseDouble(br.readLine());
@@ -32,13 +32,13 @@ public class App {
                 calculator.inquiryResultList();
 
             }else if(gubun == 2){//사칙연산
-                Calculator calculator = new ArithmeticCalculator();
+                Calculator<Double> calculator = new ArithmeticCalculator<>();
 
                 System.out.print("첫 번째 숫자를 입력하세요 : ");
-                input1 = Integer.parseInt(br.readLine());
+                input1 = Double.parseDouble(br.readLine());
 
                 System.out.print("두 번째 숫자를 입력하세요 : ");
-                input2 = Integer.parseInt(br.readLine());
+                input2 = Double.parseDouble(br.readLine());
 
                 System.out.print("연산자를 입력하세요 : ");
                 operator = br.readLine().charAt(0);

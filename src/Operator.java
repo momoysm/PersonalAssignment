@@ -8,14 +8,14 @@ public enum Operator {
     MOD("%", (input1, input2) -> input1 % input2);
 
     private String symbol;
-    private BiFunction<Integer, Integer, Integer> expression;
+    private BiFunction<Double, Double, Double> expression;
 
-    Operator(String symbol, BiFunction<Integer, Integer, Integer> expression){
+    Operator(String symbol, BiFunction<Double, Double, Double> expression){
         this.symbol = symbol;
         this.expression = expression;
     }
 
-    public int operate(int input1, int input2){
+    public Double operate(double input1, double input2){
         return expression.apply(input1, input2);
     }
 }

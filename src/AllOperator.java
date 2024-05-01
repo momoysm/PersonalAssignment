@@ -1,3 +1,3 @@
-public interface AllOperator {
-    int operate(int input1, int input2);
+public interface AllOperator<T> {
+    T operate(T input1, T input2);
 }
