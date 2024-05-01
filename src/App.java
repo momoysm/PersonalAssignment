@@ -56,6 +56,8 @@ public class App {
                 System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
                 inquiry = br.readLine();
 
+                calculator.outputResult();
+
                 //inquiry입력시 결과값 전부 조회
                 if(inquiry.equals("inquiry")){
                     calculator.inquiryResultList();

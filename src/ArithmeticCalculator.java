@@ -1,4 +1,8 @@
+import org.w3c.dom.ls.LSOutput;
+
+import java.io.BufferedReader;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class ArithmeticCalculator<T> extends Calculator<T>{
 
@@ -8,6 +12,19 @@ public class ArithmeticCalculator<T> extends Calculator<T>{
 
     ArithmeticCalculator(){
         resultList = new ArrayList<>();
+    }
+
+    @Override
+    public void outputResult(){
+        Scanner sc = new Scanner(System.in);
+        System.out.print("원하는 최소 수치를 입력하세요 : ");
+        double minNumber = sc.nextDouble();
+
+        resultList.forEach(e -> {
+            if((double)e > minNumber){
+                System.out.println(e);
+            }
+        });
     }
 
     public ArrayList<T> getResultList() {

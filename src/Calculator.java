@@ -10,4 +10,6 @@ public abstract class Calculator<T> {
 
     public abstract void calculate(T input1, T input2, char operator);
 
+    public abstract void outputResult();
+
 }
