@@ -1,6 +1,3 @@
-import org.w3c.dom.ls.LSOutput;
-
-import java.io.BufferedReader;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -51,7 +48,7 @@ public class ArithmeticCalculator<T> extends Calculator<T>{
     }
 
     @Override
-    public void calculate(T input1, T input2, char operator) throws AllException{
+    public void calculate(T input1, T input2, char operator){
 
         T result;
         String error = "";
